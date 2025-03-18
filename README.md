@@ -4,7 +4,7 @@ Este repositorio contiene mi **Currículum Vitae (CV)** alojado en **GitHub Page
 Puedes verlo en línea en: [https://jaimequistian.github.io/](https://jaimequistian.github.io/)
 
 ## 📌 Tecnologías utilizadas
-- **HTML5, CSS3 y JavaScript** para la estructura y el diseño.
+- **HTML5 y CSS3** para la estructura y el diseño.
 - **GitHub Pages** para el alojamiento gratuito.
 
 ## 🚀 Cómo clonar este repositorio
