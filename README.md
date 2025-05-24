@@ -12,3 +12,8 @@ Si deseas descargar o modificar mi CV, puedes clonarlo con el siguiente comando:
 
 ```sh
 git clone https://github.com/JaimeQuistian/jaimequistian.github.io.git
+```
+
+## ⚠️ Aviso
+Este proyecto contiene información personal utilizada exclusivamente para mostrar mi Currículum Vitae.
+No se recomienda copiar el contenido como propio, ya que los datos, experiencias y logros aquí reflejados pertenecen únicamente a Jaime Emanuel Quistián Sánchez.
