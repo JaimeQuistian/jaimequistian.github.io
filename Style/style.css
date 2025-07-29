@@ -23,7 +23,6 @@ body {
     background-color: #ffffff;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    overflow: hidden; /*Ocultar la barra de desplazamiento*/
 }
 /* ----------------------------------- */
 
@@ -31,6 +30,15 @@ body {
 .container {
     width: 70%;
     padding: 20px;
+}
+
+.containerSecundario{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    gap: 20px;     /* espacio entre tablas */
+    flex-wrap: wrap; /* para que se acomoden en móviles */
+    justify-content: space-between; /* o center si deseas alinearlas centradas */
 }
 /* ----------------------------------- */
 
@@ -63,12 +71,17 @@ body {
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 15px;
-    width: 60%;
+    width: 49%;
 }
 /* ----------------------------------- */
 
 /*Encabezados de las tablas*/
 .container h2 {
+    color: #000000; 
+    font-size: 22px;
+}
+
+.containerSecundario h2 {
     color: #000000; 
     font-size: 22px;
 }
@@ -90,6 +103,11 @@ td a {
 
 td a:hover {
     text-decoration: underline;
+}
+
+table img {
+    width: 30px;
+    height: auto;
 }
 /* ----------------------------------- */
 
@@ -207,7 +225,8 @@ h3 {
         flex-direction: column-reverse;
         margin: 0;
         border-radius: 0;
-        height: 100vh;
+        min-height: 100vh;
+        height: auto;
     }
     .container {
         width: 100%;
@@ -228,6 +247,18 @@ h3 {
     }
     th, td {
         padding: 6px 4px;
+    }
+    table img {
+        width: 40px;
+    }
+
+    /* En certificaciones: apilar las tablas */
+    .containerSecundario {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .tableStyleSmall {
+        width: 100% !important;
     }
 
     /* Envolver tablas para scroll horizontal */
