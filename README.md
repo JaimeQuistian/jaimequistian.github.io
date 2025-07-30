@@ -17,3 +17,7 @@ git clone https://github.com/JaimeQuistian/jaimequistian.github.io.git
 ## ⚠️ Aviso
 Este proyecto contiene información personal utilizada exclusivamente para mostrar mi Currículum Vitae.
 No se recomienda copiar el contenido como propio, ya que los datos, experiencias y logros aquí reflejados pertenecen únicamente a Jaime Emanuel Quistián Sánchez.
+
+Las imágenes de **logos e iconos** utilizadas en este proyecto son propiedad de sus respectivos autores y marcas registradas.  
+Se emplean únicamente con fines **ilustrativos y educativos**, sin fines comerciales.  
+No reclamo derechos sobre dichas imágenes.
