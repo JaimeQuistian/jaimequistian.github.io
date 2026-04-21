@@ -130,6 +130,44 @@ td a:hover {
     width: 100%;
 }
 
+/* Contenedor de iconos en index */
+.tech-stack-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.tech-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+}
+
+.tech-icon-item img {
+    width: 50px !important;
+    height: 50px !important;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+.tech-icon-item img:hover {
+    transform: scale(1.1);
+}
+
+.tech-icon-item span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Contenedor de iconos de Stack*/
+.cont-icons {
+    margin-top: 20px;
+}
+
 /* Estilo de botón para el CV */
 button {
     border: none;
@@ -164,9 +202,13 @@ aside h2 {
 }
 
 h3 {
-    margin-top: 5px;
+    margin-top: 10px;
     font-size: 20px;
     color: white;
+
+    text-align: center;
+    font-weight: bold;
+    background-color: #0a58e9;
 }
 
 /* Estilo del usuario */
@@ -182,6 +224,7 @@ h3 {
 /* Estilos para About Me */
 .aboutMe p {
     text-align: justify;
+    margin: 5px 0;
 }
 
 /* Estilo para contactos */
@@ -222,31 +265,25 @@ h3 {
     flex-wrap: wrap;
 }
 
-.apPersonales,
-.apTecnicas {
+.apPersonales {
     width: 100%;
     margin-top: 10px;
 }
 
 @media(min-width: 768px) {
-    .apPersonales,
-    .apTecnicas {
-        width: 50%;
+    .apPersonales {
+        width: 100%;
     }
-}
-
-.apPersonales p,
-.apTecnicas p {
-    text-align: center;
-    font-weight: bold;
-    background-color: #0a58e9;
 }
 
 .containerSkills li {
     margin-top: 2px;
+    padding: 0 15px;
     list-style: none;
 }
-
+.lenguages p{
+    margin: 5px 0;
+}
 /* Responsivo para móviles */
 @media (max-width: 768px) {
     .contenedorPrincipal {
