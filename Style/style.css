@@ -48,6 +48,11 @@ body {
     padding-top: 90px;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 /* Navbar Fijo Elegante */
 .navbar {
     position: fixed;
@@ -145,7 +150,7 @@ body {
 }
 
 .contenedorAncho {
-    max-width: 1000px;
+    max-width: 1250px;
 }
 
 /* Sección Perfil / Hero y Tarjetas */
@@ -193,7 +198,7 @@ body {
 }
 
 .hero-info p {
-    text-align: left; /* Alineado a la izquierda para evitar efecto estirado */
+    text-align: justify;
     line-height: 1.6;
     margin-bottom: 15px;
     font-size: 15px;
@@ -245,10 +250,10 @@ table {
 th, td {
     padding: 12px 10px;
     border-bottom: 1px solid var(--border-color);
-    text-align: left !important; /* Forzar alineación izquierda limpia */
+    text-align: justify !important;
     font-size: 14px;
     color: var(--text-main);
-    line-height: 1.6; /* Espaciado fluido que evita el aspecto de Excel */
+    line-height: 1.6;
 }
 
 th {
@@ -344,27 +349,95 @@ td a:hover {
     }
 }
 
+/* ==========================================
+   MEDIA PARA DISPOSITIVOS MÓVILES
+   ========================================== */
 @media (max-width: 768px) {
+    body {
+        padding-top: 170px;
+    }
+
     .navbar {
-        padding: 0 15px;
+        padding: 10px 15px;
         height: auto;
         flex-direction: column;
-        padding-bottom: 10px;
         gap: 8px;
     }
     
     body {
-        padding-top: 150px;
+        padding-top: 155px; /* Espacio superior adaptado para el navbar móvil */
     }
 
     .nav-links {
-        gap: 10px;
-        font-size: 13px;
+        gap: 8px;
+        font-size: 12px;
         flex-wrap: wrap;
         justify-content: center;
     }
 
+    .contenedorPrincipal {
+        width: 92% !important;
+        margin: 10px auto !important;
+        padding: 15px !important;
+        box-sizing: border-box;
+    }
+
+    .hero-info {
+        min-width: 100% !important;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
     .extra-info-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Transformar tablas en diseño de tarjetas apiladas para móviles */
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none; /* Ocultar los encabezados tradicionales de tabla */
+    }
+
+    tr {
+        background-color: var(--bg-container);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        margin-bottom: 15px;
+        padding: 12px;
+        box-shadow: 0 2px 5px var(--card-shadow);
+    }
+
+    td {
+        border-bottom: none;
+        padding: 6px 0;
+        text-align: left !important;
+    }
+
+    /* Destacar la primera celda (Puesto o Periodo principal) como título de tarjeta */
+    td:nth-child(1) {
+        font-weight: bold;
+        font-size: 15px;
+        color: var(--accent-color);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 8px;
+        margin-bottom: 6px;
+    }
+
+    .tableStyleLarge {
+        width: 100% !important;
+        padding: 15px !important;
+        box-sizing: border-box;
+    }
+
+    .contacts {
+        justify-content: center;
     }
 }
