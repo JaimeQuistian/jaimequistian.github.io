@@ -1,142 +1,277 @@
+/* Definición de Variables de Color por Defecto (Modo Claro) */
+:root {
+    --bg-body: #f0f4f8;
+    --bg-container: #ffffff;
+    --bg-card: #f0f4e8;
+    --text-main: #333333;
+    --text-title: #111111;
+    --border-color: #cccccc;
+    --navbar-bg: #ffffff;
+    --nav-link-color: #555555;
+    --accent-color: #497ad4;
+    --accent-hover: #365fa0;
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    --skills-bg: rgba(255, 255, 255, 0.7);
+    --contact-bg: #ffffff;
+}
+
+/* Variables para el Modo Oscuro */
+[data-theme="dark"] {
+    --bg-body: #121212;
+    --bg-container: #1e1e1e;
+    --bg-card: #2a2a2a;
+    --text-main: #d1d5db;
+    --text-title: #ffffff;
+    --border-color: #444444;
+    --navbar-bg: #1e1e1e;
+    --nav-link-color: #d1d5db;
+    --accent-color: #6096fd;
+    --accent-hover: #4a7bc7;
+    --card-shadow: rgba(0, 0, 0, 0.4);
+    --skills-bg: rgba(50, 50, 50, 0.8);
+    --contact-bg: #2d2d2d;
+}
+
 /* Reset y estilo base */
 * {
     font-family: Arial, sans-serif;
-    font-size: large;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
-    background-color: #e6e6d8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    padding-top: 90px;
 }
 
-/* Contenedor principal */
-.contenedorPrincipal {
-    margin: 2%;
+/* Navbar Fijo Elegante */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--navbar-bg);
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 2px 8px var(--card-shadow);
     display: flex;
     justify-content: space-between;
-    background-color: #ffffff;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    padding: 0 40px;
+    z-index: 9999;
+}
+
+.nav-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--nav-link-color);
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+    background-color: var(--bg-card);
+}
+
+/* Botón de Cambio de Tema (Luna / Sol) */
+.theme-toggle-btn {
+    background: none;
+    border: 2px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--accent-color);
+    background-color: var(--bg-card);
+}
+
+/* Botones de Acción */
+.nav-action-btn, .btn-primary-custom {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px var(--card-shadow);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.nav-action-btn:hover, .btn-primary-custom:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+    color: white;
+}
+
+/* Contenedores principales */
+.contenedorPrincipal {
+    max-width: 1100px;
+    margin: 30px auto;
+    background-color: var(--bg-container);
+    box-shadow: 0 5px 20px var(--card-shadow);
     border-radius: 10px;
-    overflow: hidden;
-    flex-wrap: nowrap;
+    padding: 40px;
 }
 
-/* Contenedor más grande solo para certificaciones */
 .contenedorAncho {
-    width: 90%;
-    height: auto;
-    max-height: 80vh;
-    overflow-y: auto;
-    margin: auto;
+    max-width: 1000px;
 }
 
-/* Contenedor de formación y experiencia (solo para index) */
-.container {
-    flex: 1;
-    min-width: 0;
-    padding: 20px;
-}
-
-/* Contenedor exclusivo para certificaciones */
-.containerCert {
-    padding: 20px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* Diseño responsive de tablas */
-@media (min-width: 992px) {
-    .containerCert {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    .containerCert .tableStyleLarge {
-        flex: 1 1 48%;
-        max-width: 48%;
-        box-sizing: border-box;
-    }
-}
-
-@media (max-width: 991px) {
-    .containerCert {
-        display: block;
-    }
-
-    .containerCert .tableStyleLarge {
-        width: 100%;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-/* Estilos de secciones con tablas */
-.tableStyleLarge {
-    background-color: #f0f4e8;
-    border-left: 6px solid #497ad4;
+/* Sección Perfil / Hero y Tarjetas */
+.hero-section, .tableStyleLarge {
+    background-color: var(--bg-card);
+    border-left: 6px solid var(--accent-color);
     border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 20px 30px;
+    margin-bottom: 25px;
     width: 100%;
 }
 
-/* Encabezados */
-.container h2,
-.containerCert h2 {
-    color: #000000;
-    font-size: 22px;
+.hero-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-/* Estilo para las tablas */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid var(--bg-container);
+    object-fit: cover;
+    box-shadow: 0 4px 10px var(--card-shadow);
+}
+
+.hero-info {
+    flex: 1;
+    min-width: 280px;
+}
+
+.hero-info h1, .tableStyleLarge h2 {
+    font-size: 22px;
+    color: var(--text-title);
+    margin-bottom: 5px;
+}
+
+.hero-info h2 {
+    font-size: 16px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hero-info p {
+    text-align: left; /* Alineado a la izquierda para evitar efecto estirado */
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: var(--text-main);
+}
+
+.contacts {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.contacts a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+    background: var(--contact-bg);
+    padding: 6px 12px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--card-shadow);
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s;
+}
+
+.contacts a:hover {
+    transform: translateY(-2px);
+    color: var(--accent-color);
+}
+
+.contacts a img {
+    width: 24px;
+    height: 24px;
+}
+
+.tableStyleLarge hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 15px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
 }
 
 th, td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left !important; /* Forzar alineación izquierda limpia */
+    font-size: 14px;
+    color: var(--text-main);
+    line-height: 1.6; /* Espaciado fluido que evita el aspecto de Excel */
+}
+
+th {
+    font-weight: bold;
+    color: var(--text-title);
 }
 
 td a {
+    color: var(--accent-color);
     text-decoration: none;
+    font-weight: bold;
 }
 
 td a:hover {
     text-decoration: underline;
 }
 
-/* Estilo de imágenes dentro de las tablas */
-.tableStyleLarge img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    vertical-align: middle;
-}
-
-/* Tabla responsive */
-.table-responsive {
-    overflow-x: auto;
-    width: 100%;
-}
-
-/* Contenedor de iconos en index */
+/* Tech Stack */
 .tech-stack-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 15px;
+    justify-content: center;
+    gap: 20px;
     padding: 10px 0;
 }
 
@@ -144,196 +279,92 @@ td a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80px;
+    width: 75px;
 }
 
 .tech-icon-item img {
-    width: 50px !important;
-    height: 50px !important;
+    width: 45px !important;
+    height: 45px !important;
     margin-bottom: 5px;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 .tech-icon-item img:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .tech-icon-item span {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-main);
 }
 
-/* Contenedor de iconos de Stack*/
-.cont-icons {
-    margin-top: 20px;
+/* Skills list */
+.extra-info-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
 }
 
-/* Estilo de botón para el CV */
-button {
-    border: none;
-}
-
-.cv-btn a {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-/* Sección del perfil */
-aside {
-    width: 350px;
-    min-width: 300px;
-    background-color: #497ad4;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
-}
-
-aside h2 {
-    color: #000000;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-h3 {
-    margin-top: 10px;
-    font-size: 20px;
-    color: white;
-
-    text-align: center;
-    font-weight: bold;
-    background-color: #0a58e9;
-}
-
-/* Estilo del usuario */
-.user img {
-    border-radius: 50%;
-    border: 3px solid white;
-}
-
-.user h3 {
-    background-color: #0a58e9;
-}
-
-/* Estilos para About Me */
-.aboutMe p {
-    text-align: justify;
-    margin: 5px 0;
-}
-
-/* Estilo para contactos */
-.contacts ul {
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.contacts li {
+.skills-list {
     list-style: none;
-    width: 30%;
-    text-align: center;
+    padding: 5px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px;
 }
 
-.contacts a {
-    color: #ffffff;
-    text-decoration: none;
+.skills-list li {
+    font-size: 14px;
+    background: var(--skills-bg);
+    padding: 6px 10px;
+    border-radius: 4px;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.cv-actions-footer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.containerCert {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 20px;
 }
 
-.contacts a:hover {
-    text-decoration: underline;
-}
-
-.contacts a img {
-    width: 40px;
-    height: 40px;
-}
-
-/* Habilidades personales y técnicas */
-.containerSkills {
-    display: flex;
-    text-align: left;
-    flex-wrap: wrap;
-}
-
-.apPersonales {
-    width: 100%;
-    margin-top: 10px;
-}
-
-@media(min-width: 768px) {
-    .apPersonales {
-        width: 100%;
+@media (min-width: 768px) {
+    .containerCert {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-.containerSkills li {
-    margin-top: 2px;
-    padding: 0 15px;
-    list-style: none;
-}
-.lenguages p{
-    margin: 5px 0;
-}
-/* Responsivo para móviles */
 @media (max-width: 768px) {
-    .contenedorPrincipal {
-        margin: 0;
-        border-radius: 0;
-    }
-
-    .container {
-        width: 100%;
-        padding: 10px;
-        overflow-y: auto;
-        height: 70vh;
-    }
-
-    aside {
-        width: 100%;
-        height: 30vh;
-        padding: 10px;
-        overflow-y: auto;
-    }
-
-    /* Ajustes de tabla para móviles */
-    table {
-        font-size: 14px;
-    }
-
-    th, td {
-        padding: 6px 4px;
-    }
-}
-
-/* Responsivo para Tablets/Pantallas Medianas */
-@media (max-width: 1024px) {
-    .contenedorPrincipal {
-        flex-direction: column-reverse;
-        height: 100vh;
+    .navbar {
+        padding: 0 15px;
+        height: auto;
+        flex-direction: column;
+        padding-bottom: 10px;
+        gap: 8px;
     }
     
-    .container {
-        width: 100%;
-        padding: 10px;
-        overflow-y: auto;
-        height: 70vh;
+    body {
+        padding-top: 150px;
     }
 
-    aside {
-        width: 100%;
-        height: 30vh;
-        padding: 10px;
-        overflow-y: auto;
+    .nav-links {
+        gap: 10px;
+        font-size: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .extra-info-grid {
+        grid-template-columns: 1fr;
     }
 }
